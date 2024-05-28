@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meny till Coffee Haven</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg"></div>
+    <header>
+        <h1>Välkommen till Coffee Haven</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="background-image">
+            <!-- Bakgrundsbilden -->
+        </div>
+        <img src="Kaffedrycker.svg" class="svg-image" alt="Beskrivande text"> <!-- SVG-bilden -->
+    </main>
+    <footer id="footer">
+        <p>&copy; 2024 Coffee Haven</p>
+    </footer>
+    <script>
+        window.addEventListener("scroll", function() {
+            var footer = document.getElementById("footer");
+            var position = footer.getBoundingClientRect();
+            var windowHeight = window.innerHeight;
+            var scrollPosition = window.scrollY;
+            // Visa footern när användaren har skrollat en viss mängd
+            if (scrollPosition > 100) {
+                footer.style.transition = "bottom 0.5s ease";
+                footer.style.bottom = "0";
+            } else {
+                footer.style.transition = "bottom 0.5s ease";
+                footer.style.bottom = "-100px";
+            }
+        });
+
+        var scrolled = false;
+
+        window.addEventListener("scroll", function() {
+            if (!scrolled) {
+                scrolled = true;
+            }
+            
+            var footer = document.getElementById("footer");
+            var scrollPosition = window.scrollY;
+
+            // Visa footern när användaren har skrollat en viss mängd och om de redan har skrollat
+            if (scrollPosition > 100 && scrolled) {
+                footer.style.transition = "bottom 0.5s ease";
+                footer.style.bottom = "0";
+            } else {
+                footer.style.transition = "bottom 0.5s ease";
+                footer.style.bottom = "-100px";
+            }
+        });
+        // Göm footern när sidan laddas
+        document.addEventListener("DOMContentLoaded", function() {
+            var footer = document.getElementById("footer");
+            footer.style.bottom = "-100px";
+        });
+        // Rulla tillbaka till toppen när sidan laddas om eller navigeras tillbaka till
+        window.addEventListener("load", function() {
+            setTimeout(function() {
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            }, 500); // Vänta 500 millisekunder innan scrollningen för att säkerställa att sidan är klar
+        });
+
+        window.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            }, 500); // Vänta 500 millisekunder innan scrollningen för att säkerställa att sidan är klar
+        });
+
+        window.addEventListener("popstate", function() {
+            setTimeout(function() {
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            }, 500); // Vänta 500 millisekunder innan scrollningen för att säkerställa att sidan är klar
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Sätt scrollRestoration till 'manual' för att förhindra att webbläsaren återställer scrollpositionen
+            if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'manual';
+            }
+            // Scrolla till toppen omedelbart
+            window.scrollTo(0, 0);
+        });
+    </script>
+</body>
+</html>
